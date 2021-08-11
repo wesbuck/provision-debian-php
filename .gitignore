@@ -1,0 +1,3 @@
+# Do not track Vagrant box or log files
+.vagrant
+*.log

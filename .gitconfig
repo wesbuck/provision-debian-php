@@ -1,0 +1,4 @@
+# This username & email will be associated with git on the Vagrant box
+# [user]
+#	name = Your Name
+#	email = you@email.com
