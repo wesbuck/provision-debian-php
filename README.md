@@ -1,5 +1,9 @@
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/release/wesbuck/vagrant-debian-php?logo=github)](https://github.com/wesbuck/vagrant-debian-php/releases)
+[![GitHub License](https://img.shields.io/github/license/wesbuck/vagrant-debian-php?logo=open-source-initiative)](https://opensource.org/licenses/MIT)
+[![vagrant up](https://github.com/wesbuck/vagrant-debian-php/actions/workflows/vagrant-up.yml/badge.svg)](https://github.com/wesbuck/vagrant-debian-php/actions/workflows/vagrant-up.yml)
+
 # vagrant-debian-php
-Quickly deploy a local [Vagrant](https://www.vagrantup.com/) box running Debian 10 &amp; PHP 8 to develop or test your application(s). Comes with MariaDB (MySql) and PHPMyAdmin set up and ready to go.
+Quickly deploy a local [Vagrant](https://www.vagrantup.com/) box running **Debian 10 &amp; PHP 8** to develop or test your application(s). Comes with MariaDB (MySql) and PHPMyAdmin set up and ready to go.
 
 # Installation
 
@@ -29,12 +33,16 @@ You can probably delete many of the PHP modules to speed up server installation.
 ## Spin Up Vagrant Server.
 Browse to the directory of this repo in a shell. [Git Bash](https://gitforwindows.org/) works well for Windows.
 
-Run `vagrant up`, then wait awhile for it to complete. Connection details will be displayed once the server is ready. That's it! You can now clone & run your PHP applications.
+Run `vagrant up`, then wait awhile for it to complete. Connection details will be displayed once the server is ready. That's it!
 
 Run `vagrant ssh` to control your server directly.
 
+By default, phpMyAdmin should be available at http://192.168.33.10/phpmyadmin/ with the username `admin` and password `apass`.
+
 ## Add other Repos
 Clone any repo(s) you'd like into the `webroot` directory, preferably applications built for PHP 8 & MySQL (MariaDB).
+
+They will be avaiable at http://192.168.33.10/[directory]/
 
 # Shut it down
 When you're done for the day, run `vagrant halt` to shut down the server.
