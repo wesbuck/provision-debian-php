@@ -18,12 +18,12 @@ ADMIN_DB_NAME="admin"
 ADMIN_DB_PASSWORD="apass"
 
 ## PHP settings
-PHP_VERSION="8.0"
+PHP_VERSION="8.1"
 PHP_MODULES=(curl dev gd mbstring zip mysql xml imagick json mcrypt soap cli memcached redis gmp mongodb odbc pgsql sqlite3 xsl)
 
 echo -e "\n\n============================================================\n"
 echo -e " Begin provisioning PHP ${PHP_VERSION} server\n"
-echo -e "   Expected:  Debian GNU/Linux 10 (buster)"
+echo -e "   Expected:  Debian GNU/Linux 11 (bullseye)"
 echo -e "   Found:     $(lsb_release -ds)"
 echo -e "\n============================================================\n\n"
 
@@ -87,11 +87,7 @@ echo -e "      - installing MariaDB server"
 sudo apt-get install -y mariadb-server >/dev/null 2>&1
 echo -e "      - configuring database"
 sudo mysql -u root << EOF
-UPDATE mysql.user SET Password=PASSWORD('${ROOT_DB_PASSWORD}') WHERE User='root';
-DELETE FROM mysql.user WHERE User='';
-DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-DROP DATABASE IF EXISTS test;
-DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+SET PASSWORD FOR 'root'@localhost = PASSWORD('${ROOT_DB_PASSWORD}');
 GRANT ALL ON *.* TO '${ADMIN_DB_NAME}'@'localhost' IDENTIFIED BY '${ADMIN_DB_PASSWORD}' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EOF
