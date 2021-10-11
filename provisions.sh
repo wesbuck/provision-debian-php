@@ -87,11 +87,7 @@ echo -e "      - installing MariaDB server"
 sudo apt-get install -y mariadb-server >/dev/null 2>&1
 echo -e "      - configuring database"
 sudo mysql -u root << EOF
-UPDATE mysql.user SET Password=PASSWORD('${ROOT_DB_PASSWORD}') WHERE User='root';
-DELETE FROM mysql.user WHERE User='';
-DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-DROP DATABASE IF EXISTS test;
-DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+SET PASSWORD FOR 'root'@localhost = PASSWORD('${ROOT_DB_PASSWORD}');
 GRANT ALL ON *.* TO '${ADMIN_DB_NAME}'@'localhost' IDENTIFIED BY '${ADMIN_DB_PASSWORD}' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EOF
