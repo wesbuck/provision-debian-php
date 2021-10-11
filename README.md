@@ -3,7 +3,7 @@
 [![vagrant up](https://github.com/wesbuck/vagrant-debian-php/actions/workflows/vagrant-up.yml/badge.svg)](https://github.com/wesbuck/vagrant-debian-php/actions/workflows/vagrant-up.yml)
 
 # vagrant-debian-php
-Quickly deploy a local [Vagrant](https://www.vagrantup.com/) box running **Debian 10 &amp; PHP 8** to develop or test your application(s). Comes with MariaDB (MySql) and PHPMyAdmin set up and ready to go.
+Quickly deploy a local [Vagrant](https://www.vagrantup.com/) box running **Debian 11 &amp; PHP 8.1** to develop or test your application(s). Comes with MariaDB (MySql) and PHPMyAdmin set up and ready to go.
 
 # Installation
 
@@ -26,7 +26,7 @@ ADMIN_DB_NAME="admin"
 ADMIN_DB_PASSWORD="apass"
 
 ## PHP settings
-PHP_VERSION="8.0"
+PHP_VERSION="8.1"
 PHP_MODULES=(curl json xml dev gd mbstring zip mysql imagick mcrypt soap cli memcached redis gmp mongodb odbc pgsql sqlite3 xsl)
 ```
 You can probably delete many of the PHP modules to speed up server installation.

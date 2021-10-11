@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
   
     # Box Settings
-    config.vm.box = "generic/debian10"
+    config.vm.box = "generic/debian11"
   
     # Network Settings
     config.vm.network "forwarded_port", guest: 22, host: 2209         ## SSH

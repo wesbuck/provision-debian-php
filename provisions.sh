@@ -18,12 +18,12 @@ ADMIN_DB_NAME="admin"
 ADMIN_DB_PASSWORD="apass"
 
 ## PHP settings
-PHP_VERSION="8.0"
+PHP_VERSION="8.1"
 PHP_MODULES=(curl dev gd mbstring zip mysql xml imagick json mcrypt soap cli memcached redis gmp mongodb odbc pgsql sqlite3 xsl)
 
 echo -e "\n\n============================================================\n"
 echo -e " Begin provisioning PHP ${PHP_VERSION} server\n"
-echo -e "   Expected:  Debian GNU/Linux 10 (buster)"
+echo -e "   Expected:  Debian GNU/Linux 11 (bullseye)"
 echo -e "   Found:     $(lsb_release -ds)"
 echo -e "\n============================================================\n\n"
 
